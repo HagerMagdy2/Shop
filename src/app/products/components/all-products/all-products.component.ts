@@ -11,6 +11,7 @@ export class AllProductsComponent implements OnInit {
   products: any[] = [];
   categories: any[] = [];
   loading:boolean = false;
+  cartProducts:any[] = [];
 
   constructor(private productService: ProductService) {
   }
@@ -25,7 +26,7 @@ export class AllProductsComponent implements OnInit {
     this.productService.getAllProducts().subscribe((res: any) => {
       this.loading = false; 
       this.products = res 
-      console.log(this.products)
+    //  console.log(this.products)
     }, error => {
       this.loading = false; 
       alert(error.message)
@@ -36,10 +37,10 @@ export class AllProductsComponent implements OnInit {
     this.productService.getAllCategories().subscribe((res: any) => {
       this.loading = false;
       this.categories = res
-      console.log(this.categories)
+    //  console.log(this.categories)
     }, error => {
       this.loading = false;
-      console.log(error.message)
+    //  console.log(error.message)
     })
   }
 getListByCatName(selectedCat:string){
@@ -47,10 +48,10 @@ getListByCatName(selectedCat:string){
   this.productService.getProductsByCategory(selectedCat).subscribe((res: any) => {
     this.loading = false;  
   this.products = res
-  console.log(this.products)
+//  console.log(this.products)
   }, error => {
     this.loading = false;  
-    console.log(error.message)
+    //console.log(error.message)
   })
 }
 filterCategory(event:any){
@@ -61,7 +62,24 @@ filterCategory(event:any){
   }else{
     this.getListByCatName(value)
   }  
+}
 
+addToCart(event:any){
+  // JSON.stringify() //send
+  // JSON.parse //resevre
+if("cart" in localStorage){
+  this.cartProducts=JSON.parse(localStorage.getItem("cart")!)
+  let exist = this.cartProducts.find(item => item.id == event.id )
+  if(exist){
+    alert("This Product is already in the cart")
+  }else{
+    this.cartProducts.push(event)
+    localStorage.setItem("cart",JSON.stringify(this.cartProducts))
+  }
 
+}else{
+  this.cartProducts.push(event)
+  localStorage.setItem("cart",JSON.stringify(this.cartProducts))
+}
 }
 }
