@@ -6,12 +6,13 @@
       <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
     </select>
   </div>
+<div class="mt-5">
   <div class="row"  *ngIf="!loading" >
-    <div class="col-md-4 mb-3" *ngFor="let pro of products"> 
+    <div class="col-md-3 col-ms-12" *ngFor="let pro of products"> 
         <div class="card" style="width: 18rem;" >
           <img [src]="pro.image" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title mb-2 ">{{pro.title}}</h5>
+            <h4 class="card-title ">{{pro.title}}</h4>
             <p class="card-text">
               {{pro.description}}
             </p>
@@ -23,6 +24,7 @@
         </div>
     </div>
   </div>
+</div>
  <div class="text-center w-100" *ngIf="loading">
     <app-spinner></app-spinner>
   </div> 
