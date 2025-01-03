@@ -1,0 +1,29 @@
+<div class="mt-5">
+  <div class="my-2 w-25">
+    <label class="my-1" for="">Select Category : </label>
+    <select class="form-control" (change)="filterCategory($event)" >
+      <option value="All" selected >All</option>
+      <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+    </select>
+  </div>
+  <div class="row"  *ngIf="!loading" >
+    <div class="col-md-4 mb-3" *ngFor="let pro of products"> 
+        <div class="card" style="width: 18rem;" >
+          <img [src]="pro.image" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title mb-2 ">{{pro.title}}</h5>
+            <p class="card-text">
+              {{pro.description}}
+            </p>
+            <div class="mb-2 d-flex justify-content-between align-items-center">
+              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <span>{{pro.price}} L.E</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+ <div class="text-center w-100" *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div> 
+</div>

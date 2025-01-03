@@ -1,0 +1,15 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+a{
+  font-size: x-large;
+}
+.navbar-brand{
+  font-size: xx-large;
+  font-weight: bold;
+}
+.navbar-brand{
+  margin-right: 950px;
+}

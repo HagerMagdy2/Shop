@@ -1,0 +1,12 @@
+.card:hover{
+  transform: scale(1.1);
+  }
+  .card{
+    margin-top: 30px;
+  }
+  .card-title{
+  font-size: 18px;
+  }
+  .card-text{
+    font-size: 14px;
+  }
