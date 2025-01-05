@@ -8,7 +8,7 @@
   </div>
   <div class="mt-5">
     <div class="row" *ngIf="!loading">
-      <div class="col-md-3 col-ms-12" *ngFor="let pro of products" routerLink="/details/{{pro.id}}">
+      <div class="col-md-3 col-ms-12" *ngFor="let pro of products">
         <app-product [data]="pro" (item)="addToCart($event)"></app-product>
       </div>
     </div>
