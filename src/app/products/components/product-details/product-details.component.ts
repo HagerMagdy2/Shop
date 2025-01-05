@@ -10,6 +10,7 @@ import { ProductService } from '../../services/product.service';
 export class ProductDetailsComponent implements OnInit{
   id!:any;
   product:any={}
+  loading:boolean = false;
 constructor(private activatedRoute:ActivatedRoute, private productService:ProductService){
 this.id = this.activatedRoute.snapshot.paramMap.get('id');
 }
@@ -17,10 +18,13 @@ this.id = this.activatedRoute.snapshot.paramMap.get('id');
   this.getProductDetails()
   }
 getProductDetails(){
+  this.loading=true
   this.productService.getProductById(this.id).subscribe((res:any) => {
     this.product = res;
+    this.loading=false;
     console.log(this.product);
   }, error => {
+    this.loading=false;
     console.log(error);
   });
 }
