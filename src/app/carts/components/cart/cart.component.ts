@@ -14,12 +14,12 @@ export class CartComponent {
     
   this.router.navigate(['/']);
   }
-   getTotalPrice(card: any): number {
-  //  const total = card.reduce((total, item) => total + item.price, 0);
+   getTotalPrice(cart: any): number {
+   //const total = cart.reduce((total, item) => total + item.price, 0);
   return Math.round(1 * 100) / 100;
   }
   RemoveFromCard(id:number){
-    // console.log(this.card[id])
+     console.log(this.cart[id])
     // this.card.splice(id-1, 1);
   }
 }
