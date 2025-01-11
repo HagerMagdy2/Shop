@@ -11,7 +11,6 @@ export class CartComponent {
   constructor(private router:Router){}
   onCheckoutClick() {
     //alert('Checkout successful! Redirecting to home page...');
-    
   this.router.navigate(['/']);
   }
    getTotalPrice(cart: any): number {
