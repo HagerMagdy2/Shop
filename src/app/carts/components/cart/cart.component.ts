@@ -10,7 +10,7 @@ export class CartComponent {
   cart:any[]=[]
   constructor(private router:Router){}
   onCheckoutClick() {
-    alert('Checkout successful! Redirecting to home page...');
+    //alert('Checkout successful! Redirecting to home page...');
     
   this.router.navigate(['/']);
   }
