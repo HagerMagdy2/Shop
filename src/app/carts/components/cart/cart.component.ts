@@ -15,7 +15,8 @@ export class CartComponent {
   }
    getTotalPrice(cart: any): number {
    //const total = cart.reduce((total, item) => total + item.price, 0);
-  return Math.round(1 * 100) / 100;
+  return 
+  //Math.round(1 * 100) / 100;
   }
   RemoveFromCard(id:number){
      console.log(this.cart[id])
