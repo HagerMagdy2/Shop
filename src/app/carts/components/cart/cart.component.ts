@@ -10,7 +10,7 @@ export class CartComponent {
   cart:any[]=[]
   constructor(private router:Router){}
   onCheckoutClick() {
-    //alert('Checkout successful! Redirecting to home page...');
+    alert('Checkout successful! Redirecting to home page...');
   this.router.navigate(['/']);
   }
    getTotalPrice(cart: any): number {
@@ -19,6 +19,6 @@ export class CartComponent {
   }
   RemoveFromCard(id:number){
      console.log(this.cart[id])
-     this.card.splice(id-1, 1);
+     this.cart.splice(id-1, 1);
   }
 }
