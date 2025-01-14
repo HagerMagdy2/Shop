@@ -19,6 +19,6 @@ export class CartComponent {
   }
   RemoveFromCard(id:number){
      console.log(this.cart[id])
-    // this.card.splice(id-1, 1);
+     this.card.splice(id-1, 1);
   }
 }
