@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,19 +6,17 @@ import { Router } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
-export class CartComponent {
-  cart:any[]=[]
+export class CartComponent implements OnInit {
+  cartProducts:any[]=[]
+  
   constructor(private router:Router){}
-  onCheckoutClick() {
-    alert('Checkout successful! Redirecting to home page...');
-  this.router.navigate(['/']);
+  ngOnInit(): void {
+    this.getCartProducts();
   }
-   getTotalPrice(cart: any): number {
-   //const total = cart.reduce((total, item) => total + item.price, 0);
-  return Math.round(1 * 100) / 100;
+getCartProducts(){
+  if("cart" in localStorage){
+  this.cartProducts=  JSON.parse(localStorage.getItem("cart")!)
+  console.log(this.cartProducts)
   }
-  RemoveFromCard(id:number){
-     console.log(this.cart[id])
-     this.cart.splice(id-1, 1);
-  }
+}
 }

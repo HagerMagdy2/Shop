@@ -12,23 +12,23 @@
         <th></th>
         <th>Name</th>
         <th>Price</th>
-        <th style="width: 25%;">Quantity</th>
+        <th style="width: 25%">Quantity</th>
         <th>Total</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr >
         <td>
-<img src="" alt="">
+          <img [src]="cartProducts[0].item.image" alt="" />
         </td>
-        <td>Test Title</td>
-        <td>150 L.E</td>
+        <td>{{cartProducts[0].item.title}}</td>
+        <td>{{cartProducts[0].item.price}} L.E</td>
         <td>
           <div class="quantity">
             <button class="btn btn-dark">+</button>
-            <input class="form-control" type="number">
-            <button class="btn btn-dark" >-</button>
+            <input class="form-control" type="number"  min="1" />
+            <button class="btn btn-dark">-</button>
           </div>
         </td>
         <td>200 L.E</td>
@@ -49,4 +49,6 @@
     </tfoot>
   </table>
 </div>
-<div class="alert alert-success" role="alert"><strong>Well Done!</strong>Your Order is Successfully Send</div>
+<div class="alert alert-success" role="alert">
+  <strong>Well Done!</strong>Your Order is Successfully Send
+</div>

@@ -4,42 +4,43 @@
   padding: 0 20px;
   margin: 50px 0;
 }
-.cartBox .table .quantity{
+.cartBox table .quantity{
   display: flex;
   justify-content: space-between;
 }
-.cartBox .table input{
+.cartBox table input{
   margin: 0 20px;
 
 }
-.cartBox .table tbody{
-  border-top: 1px solid blue;
-  border-bottom:1px solid blue;
+.cartBox table tbody{
+  border-top: 1px solid rgb(149, 149, 169);
+  border-bottom:1px solid rgb(135, 135, 156);
+
 }
-.cartBox .table tbody input{
+.cartBox table tbody input{
   text-align: center;
 }
-.cartBox .table tbody tr td{
+.cartBox table tbody tr td{
   border-bottom: 0;
   text-align: center;
   vertical-align: middle;
 }
-.cartBox .table tbody tr img{
+.cartBox table tbody tr img{
   width: 80px;
   height: 80px;
   border-radius: 50%;
 }
-.headCart{
+.cartBox .headCart{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
-.headCart span{
+.cartBox .headCart span{
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.headCart:hover{
+.cartBox .headCart span:hover{
   background-color: blue;
   color: #FFF !important;
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
