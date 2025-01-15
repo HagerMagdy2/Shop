@@ -2,9 +2,9 @@
   <h1 class="text-danger">Shopping Cart</h1>
   <div class="headCart">
     <p class="lead">
-      You have <label class="text-danger">2</label> item in your Cart
+      You have <label class="text-danger">{{cartProducts.length}}</label> item in your Cart
     </p>
-    <span class="text-danger cart-header"> Clear Shopping Cart</span>
+    <span class="text-danger cart-header" (click)="ClearCart()"> Clear Shopping Cart</span>
   </div>
   <table>
     <thead>
@@ -18,22 +18,22 @@
       </tr>
     </thead>
     <tbody>
-      <tr >
+      <tr *ngFor="let item of cartProducts; let index = index">
         <td>
-          <img [src]="cartProducts[0].item.image" alt="" />
+          <img [src]="item.item.image" alt="" />
         </td>
-        <td>{{cartProducts[0].item.title}}</td>
-        <td>{{cartProducts[0].item.price}} L.E</td>
+        <td>{{item.item.title}}</td>
+        <td>{{item.item.price}} L.E</td>
         <td>
           <div class="quantity">
-            <button class="btn btn-dark">+</button>
-            <input class="form-control" type="number"  min="1" />
-            <button class="btn btn-dark">-</button>
+            <button class="btn btn-dark" (click)="addQuantity(index)">+</button>
+            <input class="form-control" type="number" (change)="DetectChange()" [(ngModel)]="item.quantity"  min="1" />
+            <button class="btn btn-dark" (click)="minQuantity(index)">-</button>
           </div>
         </td>
-        <td>200 L.E</td>
+        <td>{{item.item.price * item.quantity}} L.E</td>
         <td>
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-danger" (click)="DeleteProduct(index)">Delete</button>
         </td>
       </tr>
     </tbody>
@@ -43,12 +43,12 @@
         <th></th>
         <th></th>
         <th></th>
-        <th>Total : 1500</th>
-        <th><button class="btn btn-success">Order Now</button></th>
+        <th>Total : {{getTotalPrice()}}</th>
+        <th><button class="btn btn-success" (click)="addCart()">Order Now</button></th>
       </tr>
     </tfoot>
   </table>
 </div>
-<div class="alert alert-success" role="alert">
-  <strong>Well Done!</strong>Your Order is Successfully Send
+<div class="alert alert-success" role="alert" *ngIf="success">
+  <strong>Well Done! </strong>Your Order is Successfully Send
 </div>
