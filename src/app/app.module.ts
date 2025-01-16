@@ -7,7 +7,6 @@ import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { ProductsModule } from './products/products.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductComponent } from './products/components/product/product.component';
 import { CartsModule } from './carts/carts.module';
 
 @NgModule({
