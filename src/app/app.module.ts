@@ -19,7 +19,7 @@ import { CartsModule } from './carts/carts.module';
     AppRoutingModule,
     CommonModule,
     SharedModule,
-    ProductsModule,
+
 CartsModule,
     HttpClientModule
   ],
