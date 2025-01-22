@@ -9,7 +9,7 @@ import { Product } from '../../models/products';
 export class ProductComponent {
 @Input() data!:Product;
 @Output() item=new EventEmitter
-AddBotton:boolean = false;
+AddButton:boolean = false;
 amount:number = 0;
 add(){
 this.item.emit({item:this.data,quantity:this.amount})
