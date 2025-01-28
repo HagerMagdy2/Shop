@@ -17,7 +17,7 @@
       </button>
       <div class="d-flex w-50" *ngIf="AddButton">
         <input type="number" class="form-control" [(ngModel)]="amount" />
-        <button class="btn btn-danger" (click)="add(); AddButton = false">
+        <button class="btn btn-danger" (click)="add(); AddButton = true">
           Add
         </button>
       </div>
